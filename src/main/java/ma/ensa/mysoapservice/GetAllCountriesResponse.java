@@ -8,6 +8,8 @@
 
 package ma.ensa.mysoapservice;
 
+import java.util.ArrayList;
+import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
@@ -25,7 +27,7 @@ import jakarta.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="country" type="{http://www.ensa.ma/MySoapService}country"/&gt;
+ *         &lt;element name="countries" type="{http://www.ensa.ma/MySoapService}country" maxOccurs="unbounded"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -36,36 +38,41 @@ import jakarta.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "country"
+    "countries"
 })
-@XmlRootElement(name = "getCountryResponse")
-public class GetCountryResponse {
+@XmlRootElement(name = "getAllCountriesResponse")
+public class GetAllCountriesResponse {
 
     @XmlElement(required = true)
-    protected Country country;
+    protected List<Country> countries;
 
     /**
-     * Gets the value of the country property.
+     * Gets the value of the countries property.
      * 
-     * @return
-     *     possible object is
-     *     {@link Country }
-     *     
-     */
-    public Country getCountry() {
-        return country;
-    }
-
-    /**
-     * Sets the value of the country property.
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the Jakarta XML Binding object.
+     * This is why there is not a <CODE>set</CODE> method for the countries property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link Country }
-     *     
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getCountries().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link Country }
+     * 
+     * 
      */
-    public void setCountry(Country value) {
-        this.country = value;
+    public List<Country> getCountries() {
+        if (countries == null) {
+            countries = new ArrayList<Country>();
+        }
+        return this.countries;
     }
 
 }

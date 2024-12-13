@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="bd5dcc9c-db52-4cc8-a6fe-c69e12637069" activeEnvironment="Default" name="CRUD" soapui-version="5.7.2" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="fcc407eb-5c43-4d42-ac1c-8a37434d9522" wsaVersion="NONE" name="CountriesPortSoap11" type="wsdl" bindingName="{http://www.ensa.ma/MySoapService}CountriesPortSoap11" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/ws/countries.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/ws/countries.wsdl"><con:part><con:url>http://localhost:8080/ws/countries.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://www.ensa.ma/MySoapService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://www.ensa.ma/MySoapService" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.ensa.ma/MySoapService">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://www.ensa.ma/MySoapService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="getCountryRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getCountryResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="country" type="tns:country"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="addCountryRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="country" type="tns:country"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="addCountryResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateCountryRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="country" type="tns:country"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateCountryResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deleteCountryRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deleteCountryResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAllCountriesRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <!--don't need any input parameters-->
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAllCountriesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="countries" type="tns:country"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="country">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string"/>
+          <xs:element name="population" type="xs:int"/>
+          <xs:element name="capital" type="xs:string"/>
+          <xs:element name="currency" type="tns:currency"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="currency">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="DH"/>
+          <xs:enumeration value="EUR"/>
+          <xs:enumeration value="PLN"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getAllCountriesResponse">
+    <wsdl:part element="tns:getAllCountriesResponse" name="getAllCountriesResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCountryResponse">
+    <wsdl:part element="tns:getCountryResponse" name="getCountryResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addCountryRequest">
+    <wsdl:part element="tns:addCountryRequest" name="addCountryRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateCountryRequest">
+    <wsdl:part element="tns:updateCountryRequest" name="updateCountryRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addCountryResponse">
+    <wsdl:part element="tns:addCountryResponse" name="addCountryResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateCountryResponse">
+    <wsdl:part element="tns:updateCountryResponse" name="updateCountryResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllCountriesRequest">
+    <wsdl:part element="tns:getAllCountriesRequest" name="getAllCountriesRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteCountryRequest">
+    <wsdl:part element="tns:deleteCountryRequest" name="deleteCountryRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCountryRequest">
+    <wsdl:part element="tns:getCountryRequest" name="getCountryRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteCountryResponse">
+    <wsdl:part element="tns:deleteCountryResponse" name="deleteCountryResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="CountriesPort">
+    <wsdl:operation name="getAllCountries">
+      <wsdl:input message="tns:getAllCountriesRequest" name="getAllCountriesRequest"></wsdl:input>
+      <wsdl:output message="tns:getAllCountriesResponse" name="getAllCountriesResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCountry">
+      <wsdl:input message="tns:getCountryRequest" name="getCountryRequest"></wsdl:input>
+      <wsdl:output message="tns:getCountryResponse" name="getCountryResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addCountry">
+      <wsdl:input message="tns:addCountryRequest" name="addCountryRequest"></wsdl:input>
+      <wsdl:output message="tns:addCountryResponse" name="addCountryResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateCountry">
+      <wsdl:input message="tns:updateCountryRequest" name="updateCountryRequest"></wsdl:input>
+      <wsdl:output message="tns:updateCountryResponse" name="updateCountryResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteCountry">
+      <wsdl:input message="tns:deleteCountryRequest" name="deleteCountryRequest"></wsdl:input>
+      <wsdl:output message="tns:deleteCountryResponse" name="deleteCountryResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CountriesPortSoap11" type="tns:CountriesPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getAllCountries">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getAllCountriesRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAllCountriesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCountry">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getCountryRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getCountryResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addCountry">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="addCountryRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addCountryResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateCountry">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="updateCountryRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateCountryResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteCountry">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="deleteCountryRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="deleteCountryResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CountriesPortService">
+    <wsdl:port binding="tns:CountriesPortSoap11" name="CountriesPortSoap11">
+      <soap:address location="http://localhost:8080/ws"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/ws</con:endpoint></con:endpoints><con:operation id="4b317795-4efd-4b96-819a-d6f7ef359e70" isOneWay="false" action="" name="addCountry" bindingOperationName="addCountry" type="Request-Response" outputName="addCountryResponse" inputName="addCountryRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="fcc2acad-65b2-4706-a1fd-bac9e082cbf2" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mys="http://www.ensa.ma/MySoapService">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <mys:addCountryRequest>\r
+         <mys:country>\r
+            <mys:name>Spain</mys:name>\r
+            <mys:population>47000000</mys:population>\r
+            <mys:capital>Madrid</mys:capital>\r
+            <mys:currency>EUR</mys:currency>\r
+         </mys:country>\r
+      </mys:addCountryRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.ensa.ma/MySoapService/CountriesPort/addCountryRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="fc3ac6b3-69c7-4f60-89df-5b5a20ed4132" isOneWay="false" action="" name="deleteCountry" bindingOperationName="deleteCountry" type="Request-Response" outputName="deleteCountryResponse" inputName="deleteCountryRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="bdbac55c-3194-44b3-80f0-e884269eafdb" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mys="http://www.ensa.ma/MySoapService">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <mys:deleteCountryRequest>\r
+         <mys:name>Spain</mys:name>\r
+      </mys:deleteCountryRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.ensa.ma/MySoapService/CountriesPort/deleteCountryRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="c331cff9-b13a-42ae-9293-304ffa41d5ca" isOneWay="false" action="" name="getAllCountries" bindingOperationName="getAllCountries" type="Request-Response" outputName="getAllCountriesResponse" inputName="getAllCountriesRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="e786ad44-21e7-4af6-85af-0a41665e5151" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mys="http://www.ensa.ma/MySoapService">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <mys:getAllCountriesRequest/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.ensa.ma/MySoapService/CountriesPort/getAllCountriesRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="e2351455-b568-4621-9bb8-8263b84db7c0" isOneWay="false" action="" name="getCountry" bindingOperationName="getCountry" type="Request-Response" outputName="getCountryResponse" inputName="getCountryRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="e79cf19d-84f0-458e-8cdc-4e85b1a774a4" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mys="http://www.ensa.ma/MySoapService">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <mys:getCountryRequest>\r
+         <mys:name>Spain</mys:name>\r
+      </mys:getCountryRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.ensa.ma/MySoapService/CountriesPort/getCountryRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="ed48869e-f8f9-4b53-97ce-c0d450f1921b" isOneWay="false" action="" name="updateCountry" bindingOperationName="updateCountry" type="Request-Response" outputName="updateCountryResponse" inputName="updateCountryRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="df2c5aac-4d82-469d-b4c6-87e5d3d0ee25" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:my="http://www.ensa.ma/MySoapService">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <my:updateCountryRequest>
+         <my:country>
+            <my:name>Spain</my:name>
+            <my:population>46000000</my:population> <!-- Updated population -->
+            <my:capital>Madrid</my:capital>
+            <my:currency>EUR</my:currency>
+         </my:country>
+      </my:updateCountryRequest>
+   </soapenv:Body>
+</soapenv:Envelope>
+]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.ensa.ma/MySoapService/CountriesPort/updateCountryRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

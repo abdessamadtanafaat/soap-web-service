@@ -23,5 +23,37 @@ public class CountryEndPoint {
         response.setCountry(countryRepository.findCountry(request.getName()));
         return response;
     }
+
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "addCountryRequest")
+    @ResponsePayload
+    public AddCountryResponse addCountry(@RequestPayload AddCountryRequest request) {
+        AddCountryResponse response = new AddCountryResponse();
+        response.setStatus(countryRepository.addCountry(request.getCountry()));
+        return response;
+    }
+
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "updateCountryRequest")
+    @ResponsePayload
+    public UpdateCountryResponse updateCountry(@RequestPayload UpdateCountryRequest request) {
+        UpdateCountryResponse response = new UpdateCountryResponse();
+        response.setStatus(countryRepository.updateCountry(request.getCountry()));
+        return response;
+    }
+
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "deleteCountryRequest")
+    @ResponsePayload
+    public DeleteCountryResponse deleteCountry(@RequestPayload DeleteCountryRequest request) {
+        DeleteCountryResponse response = new DeleteCountryResponse();
+        response.setStatus(countryRepository.deleteCountry(request.getName()));
+        return response;
+    }
+
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getAllCountriesRequest")
+    @ResponsePayload
+    public GetAllCountriesResponse getAllCountries(@RequestPayload GetAllCountriesRequest request) {
+        GetAllCountriesResponse response = new GetAllCountriesResponse();
+        response.getCountries().addAll(countryRepository.getAllCountries());
+        return response;
+    }
 }
 

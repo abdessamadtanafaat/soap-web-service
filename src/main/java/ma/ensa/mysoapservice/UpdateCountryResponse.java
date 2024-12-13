@@ -25,7 +25,7 @@ import jakarta.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="country" type="{http://www.ensa.ma/MySoapService}country"/&gt;
+ *         &lt;element name="status" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -36,36 +36,36 @@ import jakarta.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "country"
+    "status"
 })
-@XmlRootElement(name = "getCountryResponse")
-public class GetCountryResponse {
+@XmlRootElement(name = "updateCountryResponse")
+public class UpdateCountryResponse {
 
     @XmlElement(required = true)
-    protected Country country;
+    protected String status;
 
     /**
-     * Gets the value of the country property.
+     * Gets the value of the status property.
      * 
      * @return
      *     possible object is
-     *     {@link Country }
+     *     {@link String }
      *     
      */
-    public Country getCountry() {
-        return country;
+    public String getStatus() {
+        return status;
     }
 
     /**
-     * Sets the value of the country property.
+     * Sets the value of the status property.
      * 
      * @param value
      *     allowed object is
-     *     {@link Country }
+     *     {@link String }
      *     
      */
-    public void setCountry(Country value) {
-        this.country = value;
+    public void setStatus(String value) {
+        this.status = value;
     }
 
 }

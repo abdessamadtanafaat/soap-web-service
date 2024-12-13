@@ -10,7 +10,6 @@ package ma.ensa.mysoapservice;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
-import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.XmlType;
 
@@ -25,7 +24,6 @@ import jakarta.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="country" type="{http://www.ensa.ma/MySoapService}country"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -35,37 +33,9 @@ import jakarta.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "country"
-})
-@XmlRootElement(name = "getCountryResponse")
-public class GetCountryResponse {
+@XmlType(name = "")
+@XmlRootElement(name = "getAllCountriesRequest")
+public class GetAllCountriesRequest {
 
-    @XmlElement(required = true)
-    protected Country country;
-
-    /**
-     * Gets the value of the country property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Country }
-     *     
-     */
-    public Country getCountry() {
-        return country;
-    }
-
-    /**
-     * Sets the value of the country property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Country }
-     *     
-     */
-    public void setCountry(Country value) {
-        this.country = value;
-    }
 
 }

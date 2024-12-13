@@ -3,7 +3,9 @@ package ma.ensa.mysoapservice;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Component
@@ -43,6 +45,30 @@ public class CountryRepository {
             throw new RuntimeException(e);
         }
         return countries.get(name); // Retourne le pays correspondant au nom
+    }
+    public String addCountry(Country country) {
+        if (countries.containsKey(country.getName())) {
+            return "Country already exists.";
+        }
+        countries.put(country.getName(), country);
+        return "Country added successfully.";
+    }
+    public String updateCountry(Country country) {
+        if (!countries.containsKey(country.getName())) {
+            return "Country not found.";
+        }
+        countries.put(country.getName(), country);
+        return "Country updated successfully.";
+    }
+    public String deleteCountry(String name) {
+        if (!countries.containsKey(name)) {
+            return "Country not found.";
+        }
+        countries.remove(name);
+        return "Country deleted successfully.";
+    }
+    public List<Country> getAllCountries() {
+        return new ArrayList<>(countries.values());
     }
 }
 

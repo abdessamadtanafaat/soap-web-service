@@ -17,6 +17,61 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
+    <xs:element name="addCountryRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="country" type="tns:country"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="addCountryResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="status" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="updateCountryRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="country" type="tns:country"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="updateCountryResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="status" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="deleteCountryRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="deleteCountryResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="status" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getAllCountriesRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <!-- don't need any input parameters -->
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>    <xs:element name="getAllCountriesResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="countries" type="tns:country" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
     <xs:complexType name="country">
         <xs:sequence>
             <xs:element name="name" type="xs:string"/>

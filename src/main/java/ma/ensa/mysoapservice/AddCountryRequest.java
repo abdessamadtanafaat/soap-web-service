@@ -38,8 +38,8 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "country"
 })
-@XmlRootElement(name = "getCountryResponse")
-public class GetCountryResponse {
+@XmlRootElement(name = "addCountryRequest")
+public class AddCountryRequest {
 
     @XmlElement(required = true)
     protected Country country;
